@@ -12,7 +12,6 @@ use Spryker\Zed\SalesPayment\Communication\Mapper\EventPaymentMapper;
 use Spryker\Zed\SalesPayment\Communication\Mapper\EventPaymentMapperInterface;
 
 /**
- * @method \Spryker\Zed\SalesPayment\Persistence\PaymentQueryContainerInterface getQueryContainer()
  * @method \Spryker\Zed\SalesPayment\SalesPaymentConfig getConfig()
  * @method \Spryker\Zed\SalesPayment\Business\SalesPaymentFacadeInterface getFacade()
  * @method \Spryker\Zed\SalesPayment\Persistence\SalesPaymentRepositoryInterface getRepository()
