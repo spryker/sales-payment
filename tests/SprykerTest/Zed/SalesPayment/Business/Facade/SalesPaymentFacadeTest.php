@@ -72,9 +72,6 @@ class SalesPaymentFacadeTest extends Unit
      */
     protected $salesPaymentFacade;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -82,9 +79,6 @@ class SalesPaymentFacadeTest extends Unit
         $this->salesPaymentFacade = $this->tester->getFacade();
     }
 
-    /**
-     * @return void
-     */
     public function testSaveOrderPaymentsPaymentTransfersHaveIdSalesPayment(): void
     {
         // Arrange
@@ -114,9 +108,6 @@ class SalesPaymentFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderWithPaymentsExecutePluginStack(): void
     {
         // Arrange
@@ -145,9 +136,6 @@ class SalesPaymentFacadeTest extends Unit
         $this->assertCount(2, $orderTransfer->getPayments());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderWithPaymentsPriceToPayAmountIsNotAffected(): void
     {
         // Arrange
@@ -160,9 +148,6 @@ class SalesPaymentFacadeTest extends Unit
         $this->assertSame(static::TEST_GRAND_TOTAL, $orderTransfer->getTotals()->getPriceToPay());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderWithPaymentsPriceToPayShouldNotBeEqualToGrandTotal(): void
     {
         // Arrange
@@ -192,11 +177,6 @@ class SalesPaymentFacadeTest extends Unit
         $this->assertSame(static::TEST_GRAND_TOTAL - 2 * $fakeAvailableAmount, $orderTransfer->getTotals()->getPriceToPay());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $salesOrderTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     protected function createOrderTransfer(SaveOrderTransfer $salesOrderTransfer): OrderTransfer
     {
         $totalsTransfer = new TotalsTransfer();

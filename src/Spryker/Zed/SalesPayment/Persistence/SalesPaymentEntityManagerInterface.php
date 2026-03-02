@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\SalesPaymentTransfer;
 
 interface SalesPaymentEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesPaymentTransfer $salesPaymentTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesPaymentTransfer
-     */
     public function createSalesPayment(SalesPaymentTransfer $salesPaymentTransfer): SalesPaymentTransfer;
 
     /**

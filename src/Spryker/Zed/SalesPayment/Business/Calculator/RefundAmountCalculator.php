@@ -17,9 +17,6 @@ class RefundAmountCalculator implements RefundAmountCalculatorInterface
      */
     protected $salesPaymentConfig;
 
-    /**
-     * @param \Spryker\Zed\SalesPayment\SalesPaymentConfig $salesPaymentConfig
-     */
     public function __construct(SalesPaymentConfig $salesPaymentConfig)
     {
         $this->salesPaymentConfig = $salesPaymentConfig;

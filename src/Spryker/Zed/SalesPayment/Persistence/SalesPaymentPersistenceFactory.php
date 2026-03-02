@@ -35,9 +35,6 @@ class SalesPaymentPersistenceFactory extends AbstractPersistenceFactory
         return SpySalesPaymentMethodTypeQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Persistence\Propel\Mapper\SalesPaymentMapper
-     */
     public function createSalesPaymentMapper(): SalesPaymentMapper
     {
         return new SalesPaymentMapper();

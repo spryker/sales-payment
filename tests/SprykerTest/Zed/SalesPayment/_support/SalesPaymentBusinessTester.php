@@ -51,11 +51,6 @@ class SalesPaymentBusinessTester extends Actor
      */
     public const KEY_SENT_ITEM_IDS = 'sentItemIds';
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
-     *
-     * @return void
-     */
     public function assertIsSalesPaymentSaved(PaymentTransfer $paymentTransfer): void
     {
         $this->assertNotEmpty($paymentTransfer->getIdSalesPayment());
@@ -104,9 +99,6 @@ class SalesPaymentBusinessTester extends Actor
         return $salesPaymentTransfers;
     }
 
-    /**
-     * @return \Orm\Zed\Payment\Persistence\SpySalesPaymentQuery
-     */
     protected function getSalesPaymentQuery(): SpySalesPaymentQuery
     {
         return SpySalesPaymentQuery::create();

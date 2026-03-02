@@ -13,12 +13,6 @@ use Propel\Runtime\Collection\Collection;
 
 class SalesPaymentMapper
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesPaymentTransfer $salesPaymentTransfer
-     * @param \Orm\Zed\Payment\Persistence\SpySalesPayment $spySalesPayment
-     *
-     * @return \Orm\Zed\Payment\Persistence\SpySalesPayment
-     */
     public function mapSalesPaymentTransferToSalesPaymentEntity(
         SalesPaymentTransfer $salesPaymentTransfer,
         SpySalesPayment $spySalesPayment
@@ -28,12 +22,6 @@ class SalesPaymentMapper
         return $spySalesPayment;
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpySalesPayment $spySalesPayment
-     * @param \Generated\Shared\Transfer\SalesPaymentTransfer $salesPaymentTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesPaymentTransfer
-     */
     public function mapSalesPaymentEntityToSalesPaymentTransfer(
         SpySalesPayment $spySalesPayment,
         SalesPaymentTransfer $salesPaymentTransfer

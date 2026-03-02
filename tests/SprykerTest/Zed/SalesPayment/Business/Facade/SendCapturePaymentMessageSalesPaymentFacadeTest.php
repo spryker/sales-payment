@@ -95,9 +95,6 @@ class SendCapturePaymentMessageSalesPaymentFacadeTest extends Unit
         $this->tester->getFacade()->sendCapturePaymentMessage($eventPaymentTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSendEventPaymentConfirmationPendingThrowOrderNotFoundException(): void
     {
         // Arrange

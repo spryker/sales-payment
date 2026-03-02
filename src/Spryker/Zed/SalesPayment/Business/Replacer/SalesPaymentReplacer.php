@@ -20,11 +20,6 @@ class SalesPaymentReplacer implements SalesPaymentReplacerInterface
 {
     use TransactionTrait;
 
-    /**
-     * @param \Spryker\Zed\SalesPayment\Business\Reader\SalesPaymentReaderInterface $salesPaymentReader
-     * @param \Spryker\Zed\SalesPayment\Business\Writer\SalesPaymentWriterInterface $salesPaymentWriter
-     * @param \Spryker\Zed\SalesPayment\Business\Deleter\SalesPaymentDeleterInterface $salesPaymentDeleter
-     */
     public function __construct(
         protected SalesPaymentReaderInterface $salesPaymentReader,
         protected SalesPaymentWriterInterface $salesPaymentWriter,
@@ -32,12 +27,6 @@ class SalesPaymentReplacer implements SalesPaymentReplacerInterface
     ) {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     public function replaceSalesPayments(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
         $this->getTransactionHandler()->handleTransaction(function () use ($quoteTransfer, $saveOrderTransfer): void {
@@ -45,12 +34,6 @@ class SalesPaymentReplacer implements SalesPaymentReplacerInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     protected function executeReplaceSalesPaymentsTransaction(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
         $salesPaymentCriteriaTransfer = (new SalesPaymentCriteriaTransfer())->setSalesPaymentConditions(

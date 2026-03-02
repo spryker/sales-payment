@@ -41,9 +41,6 @@ class ReplaceSalesPaymentsTest extends Unit
      */
     protected SalesPaymentBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -51,9 +48,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->tester->configureTestStateMachine([static::DEFAULT_OMS_PROCESS_NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testThrowsNullValueExceptionWhenIdSalesOrderIsNotSetInSaveOrderTransfer(): void
     {
         // Assert
@@ -64,9 +58,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->tester->getFacade()->replaceSalesPayments(new QuoteTransfer(), new SaveOrderTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testExecutesSalesPaymentPreDeletePluginInterfacePluginStackBeforeEntityDeletion(): void
     {
         // Arrange
@@ -84,9 +75,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->tester->getFacade()->replaceSalesPayments(new QuoteTransfer(), $saveOrderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotExecuteSalesPaymentPreDeletePluginInterfacePluginStackWhenThereAreNoEntitiesToDelete(): void
     {
         // Arrange
@@ -102,9 +90,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->tester->getFacade()->replaceSalesPayments(new QuoteTransfer(), $saveOrderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testExecutesPaymentMapKeyBuilderStrategyPluginInterfacePluginStack(): void
     {
         // Arrange
@@ -126,9 +111,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->tester->getFacade()->replaceSalesPayments($quoteTransfer, $saveOrderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testReplacesOrderRelatedPaymentAndDoesNotAffectOtherPayments(): void
     {
         // Arrange
@@ -158,9 +140,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->assertSalesPayment($salesPaymentTransfers, $saveOrderTransfer2, 200, 'Payment Provider 2', 'Payment Method 2');
     }
 
-    /**
-     * @return void
-     */
     public function testAddsNewPaymentWhenNoOtherOrderRelatedPaymentsExist(): void
     {
         // Arrange
@@ -205,14 +184,6 @@ class ReplaceSalesPaymentsTest extends Unit
         $this->assertSame($paymentMethod, $salesPaymentTransfer1->getPaymentMethod());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     * @param int $amount
-     * @param string $paymentProvider
-     * @param string $paymentMethod
-     *
-     * @return void
-     */
     protected function haveSalesPayment(
         SaveOrderTransfer $saveOrderTransfer,
         int $amount,

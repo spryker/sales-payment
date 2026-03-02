@@ -40,12 +40,6 @@ class SalesPaymentWriter implements SalesPaymentWriterInterface
         $this->paymentMapKeyBuilderStrategyPlugins = $paymentMapKeyBuilderStrategyPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     public function saveOrderPayments(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
         $idSalesOrder = $saveOrderTransfer->getIdSalesOrderOrFail();
@@ -55,12 +49,6 @@ class SalesPaymentWriter implements SalesPaymentWriterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param int $idSalesOrder
-     *
-     * @return void
-     */
     protected function executeSavePaymentMethodsTransaction(QuoteTransfer $quoteTransfer, int $idSalesOrder): void
     {
         $paymentTransfers = $this->getPaymentTransfers($quoteTransfer);
@@ -109,11 +97,6 @@ class SalesPaymentWriter implements SalesPaymentWriterInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
-     *
-     * @return string
-     */
     protected function createPaymentMapKey(PaymentTransfer $paymentTransfer): string
     {
         foreach ($this->paymentMapKeyBuilderStrategyPlugins as $paymentMapKeyBuilderStrategyPlugin) {

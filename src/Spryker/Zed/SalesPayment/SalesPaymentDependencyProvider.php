@@ -42,11 +42,6 @@ class SalesPaymentDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_SALES_PAYMENT_PRE_DELETE = 'PLUGINS_SALES_PAYMENT_PRE_DELETE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->addMessageBrokerFacade($container);
@@ -58,11 +53,6 @@ class SalesPaymentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addSalesPaymentExpanderPlugins(Container $container): Container
     {
         $container->set(static::SALES_PAYMENT_EXPANDER_PLUGINS, function () {
@@ -80,11 +70,6 @@ class SalesPaymentDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPaymentMapKeyBuilderStrategyPlugins(Container $container): Container
     {
         $container->set(static::PAYMENT_MAP_KEY_BUILDER_STRATEGY_PLUGINS, function () {
@@ -102,11 +87,6 @@ class SalesPaymentDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMessageBrokerFacade(Container $container): Container
     {
         $container->set(static::FACADE_MESSAGE_BROKER, function (Container $container) {
@@ -118,11 +98,6 @@ class SalesPaymentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addSalesFacade(Container $container): Container
     {
         $container->set(static::FACADE_SALES, function (Container $container) {
@@ -134,11 +109,6 @@ class SalesPaymentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addSalesPaymentPreDeletePlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_SALES_PAYMENT_PRE_DELETE, function () {

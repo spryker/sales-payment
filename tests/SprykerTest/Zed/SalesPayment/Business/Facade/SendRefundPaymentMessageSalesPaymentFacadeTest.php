@@ -95,9 +95,6 @@ class SendRefundPaymentMessageSalesPaymentFacadeTest extends Unit
         $this->tester->getFacade()->sendRefundPaymentMessage($eventPaymentTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSendRefundPaymentMessageThrowsOrderNotFoundException(): void
     {
         // Arrange

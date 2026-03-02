@@ -35,9 +35,6 @@ use Spryker\Zed\SalesPayment\SalesPaymentDependencyProvider;
  */
 class SalesPaymentBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Expander\SalesOrderExpanderInterface
-     */
     public function createSalesOrderExpander(): SalesOrderExpanderInterface
     {
         return new SalesOrderExpander(
@@ -46,9 +43,6 @@ class SalesPaymentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Writer\SalesPaymentWriterInterface
-     */
     public function createSalesPaymentWriter(): SalesPaymentWriterInterface
     {
         return new SalesPaymentWriter(
@@ -57,9 +51,6 @@ class SalesPaymentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\MessageEmitter\MessageEmitterInterface
-     */
     public function createMessageEmitter(): MessageEmitterInterface
     {
         return new MessageEmitter(
@@ -71,25 +62,16 @@ class SalesPaymentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Calculator\CaptureAmountCalculatorInterface
-     */
     public function createCaptureAmountCalculator(): CaptureAmountCalculatorInterface
     {
         return new CaptureAmountCalculator($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Calculator\RefundAmountCalculatorInterface
-     */
     public function createRefundAmountCalculator(): RefundAmountCalculatorInterface
     {
         return new RefundAmountCalculator($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Replacer\SalesPaymentReplacerInterface
-     */
     public function createSalesPaymentReplacer(): SalesPaymentReplacerInterface
     {
         return new SalesPaymentReplacer(
@@ -99,9 +81,6 @@ class SalesPaymentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Deleter\SalesPaymentDeleterInterface
-     */
     public function createSalesPaymentDeleter(): SalesPaymentDeleterInterface
     {
         return new SalesPaymentDeleter(
@@ -126,25 +105,16 @@ class SalesPaymentBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(SalesPaymentDependencyProvider::PAYMENT_MAP_KEY_BUILDER_STRATEGY_PLUGINS);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Dependency\Facade\SalesPaymentToMessageBrokerFacadeInterface
-     */
     public function getMessageBrokerFacade(): SalesPaymentToMessageBrokerFacadeInterface
     {
         return $this->getProvidedDependency(SalesPaymentDependencyProvider::FACADE_MESSAGE_BROKER);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Dependency\Facade\SalesPaymentToSalesFacadeInterface
-     */
     public function getSalesFacade(): SalesPaymentToSalesFacadeInterface
     {
         return $this->getProvidedDependency(SalesPaymentDependencyProvider::FACADE_SALES);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesPayment\Business\Reader\SalesPaymentReaderInterface
-     */
     public function createSalesPaymentReader(): SalesPaymentReaderInterface
     {
         return new SalesPaymentReader(

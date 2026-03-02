@@ -70,9 +70,6 @@ class SendCancelPaymentMessageSalesPaymentFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testSendCancelPaymentMessageThrowsOrderNotFoundException(): void
     {
         // Arrange

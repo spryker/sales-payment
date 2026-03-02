@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class SalesPaymentEntityManager extends AbstractEntityManager implements SalesPaymentEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesPaymentTransfer $salesPaymentTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesPaymentTransfer
-     */
     public function createSalesPayment(SalesPaymentTransfer $salesPaymentTransfer): SalesPaymentTransfer
     {
         $idSalesPaymentMethodType = $this->getIdSalesPaymentMethodType(
@@ -53,12 +48,6 @@ class SalesPaymentEntityManager extends AbstractEntityManager implements SalesPa
             ->delete();
     }
 
-    /**
-     * @param string $paymentProvider
-     * @param string $paymentMethod
-     *
-     * @return int
-     */
     protected function getIdSalesPaymentMethodType(string $paymentProvider, string $paymentMethod): int
     {
         $salesPaymentMethodTypeEntity = $this->getFactory()

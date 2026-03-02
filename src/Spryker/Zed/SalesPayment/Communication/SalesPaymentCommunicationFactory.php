@@ -19,9 +19,6 @@ use Spryker\Zed\SalesPayment\Communication\Mapper\EventPaymentMapperInterface;
  */
 class SalesPaymentCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\SalesPayment\Communication\Mapper\EventPaymentMapperInterface
-     */
     public function createEventPaymentMapper(): EventPaymentMapperInterface
     {
         return new EventPaymentMapper();

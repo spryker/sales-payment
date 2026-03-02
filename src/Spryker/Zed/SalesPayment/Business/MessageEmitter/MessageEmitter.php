@@ -48,13 +48,6 @@ class MessageEmitter implements MessageEmitterInterface
      */
     protected $refundAmountCalculator;
 
-    /**
-     * @param \Spryker\Zed\SalesPayment\Dependency\Facade\SalesPaymentToMessageBrokerFacadeInterface $messageBrokerFacade
-     * @param \Spryker\Zed\SalesPayment\Dependency\Facade\SalesPaymentToSalesFacadeInterface $salesFacade
-     * @param \Spryker\Zed\SalesPayment\SalesPaymentConfig $salesPaymentConfig
-     * @param \Spryker\Zed\SalesPayment\Business\Calculator\CaptureAmountCalculatorInterface $captureAmountCalculator
-     * @param \Spryker\Zed\SalesPayment\Business\Calculator\RefundAmountCalculatorInterface $refundAmountCalculator
-     */
     public function __construct(
         SalesPaymentToMessageBrokerFacadeInterface $messageBrokerFacade,
         SalesPaymentToSalesFacadeInterface $salesFacade,
@@ -69,11 +62,6 @@ class MessageEmitter implements MessageEmitterInterface
         $this->refundAmountCalculator = $refundAmountCalculator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\EventPaymentTransfer $eventPaymentTransfer
-     *
-     * @return void
-     */
     public function sendCancelPaymentMessage(EventPaymentTransfer $eventPaymentTransfer): void
     {
         $orderTransfer = $this->getOrderTransfer($eventPaymentTransfer);

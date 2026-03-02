@@ -19,19 +19,11 @@ class SalesPaymentReader implements SalesPaymentReaderInterface
      */
     protected SalesPaymentRepositoryInterface $salesPaymentRepository;
 
-    /**
-     * @param \Spryker\Zed\SalesPayment\Persistence\SalesPaymentRepositoryInterface $salesPaymentRepository
-     */
     public function __construct(SalesPaymentRepositoryInterface $salesPaymentRepository)
     {
         $this->salesPaymentRepository = $salesPaymentRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesPaymentCriteriaTransfer $salesPaymentCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesPaymentCollectionTransfer
-     */
     public function getSalesPaymentCollection(SalesPaymentCriteriaTransfer $salesPaymentCriteriaTransfer): SalesPaymentCollectionTransfer
     {
         $salesPaymentCollectionTransfer = new SalesPaymentCollectionTransfer();

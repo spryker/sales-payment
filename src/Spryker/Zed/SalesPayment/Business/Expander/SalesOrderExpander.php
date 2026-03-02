@@ -35,11 +35,6 @@ class SalesOrderExpander implements SalesOrderExpanderInterface
         $this->orderPaymentExpanderPlugins = $orderPaymentExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function expandOrderWithPayments(OrderTransfer $orderTransfer): OrderTransfer
     {
         $salesPaymentTransfers = $this->salesPaymentRepository->getSalesPaymentsByIdSalesOrder($orderTransfer->getIdSalesOrderOrFail());
@@ -58,11 +53,6 @@ class SalesOrderExpander implements SalesOrderExpanderInterface
         return $orderTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return int
-     */
     protected function calculatePriceToPay(OrderTransfer $orderTransfer): int
     {
         $priceToPay = $orderTransfer->getTotalsOrFail()->getGrandTotal() ?? 0;
@@ -82,12 +72,6 @@ class SalesOrderExpander implements SalesOrderExpanderInterface
         return $priceToPay;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaymentTransfer
-     */
     protected function executeOrderPaymentExpanderPlugins(
         PaymentTransfer $paymentTransfer,
         OrderTransfer $orderTransfer

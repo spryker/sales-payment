@@ -30,11 +30,6 @@ class SalesPaymentDataHelper extends Module
         return $entities;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesPaymentTransfer $salesPaymentTransfer
-     *
-     * @return \Orm\Zed\Payment\Persistence\SpySalesPayment
-     */
     public function haveSalesPaymentEntity(SalesPaymentTransfer $salesPaymentTransfer): SpySalesPayment
     {
         $salesPaymentMethodTypeEntity = $this->haveSalesPaymentMethodType(
@@ -51,12 +46,6 @@ class SalesPaymentDataHelper extends Module
         return $salesPaymentEntity;
     }
 
-    /**
-     * @param string $providerName
-     * @param string $methodName
-     *
-     * @return \Orm\Zed\Payment\Persistence\SpySalesPaymentMethodType
-     */
     protected function haveSalesPaymentMethodType(string $providerName, string $methodName): SpySalesPaymentMethodType
     {
         $salesPaymentMethodTypeEntity = new SpySalesPaymentMethodType();

@@ -17,9 +17,6 @@ class CaptureAmountCalculator implements CaptureAmountCalculatorInterface
      */
     protected $salesPaymentConfig;
 
-    /**
-     * @param \Spryker\Zed\SalesPayment\SalesPaymentConfig $salesPaymentConfig
-     */
     public function __construct(SalesPaymentConfig $salesPaymentConfig)
     {
         $this->salesPaymentConfig = $salesPaymentConfig;
@@ -58,11 +55,6 @@ class CaptureAmountCalculator implements CaptureAmountCalculatorInterface
         return $itemsCost;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return int
-     */
     protected function getExpensesCost(OrderTransfer $orderTransfer): int
     {
         $expensesCost = 0;
@@ -78,11 +70,6 @@ class CaptureAmountCalculator implements CaptureAmountCalculatorInterface
         return $expensesCost;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return bool
-     */
     protected function hasCaptureForOrderBeenRequestedAtLeastOnce(OrderTransfer $orderTransfer): bool
     {
         foreach ($orderTransfer->getItems() as $itemTransfer) {

@@ -158,11 +158,6 @@ class SalesPaymentHelper extends AbstractHelper
      */
     public const EVENT_CLOSE = 'close';
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\SalesPaymentMethodTypeTransfer
-     */
     public function haveSalesPaymentMethodTypePersisted(array $seed = []): SalesPaymentMethodTypeTransfer
     {
         $salesPaymentMethodTypeQuery = SpySalesPaymentMethodTypeQuery::create()
@@ -177,11 +172,6 @@ class SalesPaymentHelper extends AbstractHelper
         return $salesPaymentMethodTypeTransfer->fromArray($salesPaymentMethodTypeEntity->toArray(), true);
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\SalesPaymentTransfer
-     */
     public function haveSalesPaymentPersisted(array $seed = []): SalesPaymentTransfer
     {
         $salesPaymentQuery = SpySalesPaymentQuery::create()
@@ -197,12 +187,6 @@ class SalesPaymentHelper extends AbstractHelper
         return $salesPaymentTransfer->fromArray($salesPaymentEntity->toArray(), true);
     }
 
-    /**
-     * @param string $messageClassName
-     * @param array $properties
-     *
-     * @return void
-     */
     public function assertSentMessageProperties(string $messageClassName, array $properties): void
     {
         $this->getInMemoryMessageBrokerHelper()->assertMessagesByCallbackForMessageName(

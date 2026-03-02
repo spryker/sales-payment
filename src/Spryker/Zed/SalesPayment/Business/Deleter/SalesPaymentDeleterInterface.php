@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\SalesPaymentCollectionTransfer;
 
 interface SalesPaymentDeleterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesPaymentCollectionTransfer $salesPaymentCollectionTransfer
-     *
-     * @return void
-     */
     public function deleteSalesPayments(SalesPaymentCollectionTransfer $salesPaymentCollectionTransfer): void;
 }
